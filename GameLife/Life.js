@@ -107,6 +107,13 @@ class Board{
            
        } 
     }
+    drawPoint(row,col){
+        this.ctx2d.clearRect(col*this.size, row*this.size, this.size, this.size);
+        if(this.game.getStatusAt(row,col)==LIVE){
+            this.ctx2d.fillRect(col*this.size, row*this.size, this.size, this.size);
+        }
+        this.ctx2d.strokeRect(col*this.size, row*this.size, this.size, this.size);
+    }
 }
 
 
@@ -133,5 +140,17 @@ function clickHandler(event){
        game.setStatusAt(row,col, DEAD);
     else
         game.setStatusAt(row,col, LIVE);
-    gameBorad.draw();
+    gameBorad.drawPoint(row,col);
+}
+
+var timer;
+
+function run(){
+    var gap = document.getElementById("timeGap");
+
+    timer = setInterval(next, gap.value);
+}
+
+function stop(){
+   clearInterval(timer);
 }
