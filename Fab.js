@@ -3,5 +3,5 @@ function Fabonacci(n){
     if(n==1) return 1;
     return Fabonacci(n-1)+Fabonacci(n-2);
 }
-
+//? n > 384401000
 console.log(Fabonacci(10))
