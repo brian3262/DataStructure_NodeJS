@@ -108,6 +108,7 @@ class Board{
        } 
     }
     drawPoint(row,col){
+        //judge row & col are in suitable range
         this.ctx2d.clearRect(col*this.size, row*this.size, this.size, this.size);
         if(this.game.getStatusAt(row,col)==LIVE){
             this.ctx2d.fillRect(col*this.size, row*this.size, this.size, this.size);
@@ -147,10 +148,13 @@ var timer;
 
 function run(){
     var gap = document.getElementById("timeGap");
-
     timer = setInterval(next, gap.value);
+    document.getElementById("btnRun").disabled = true;
+    document.getElementById("btnStop").disabled = false;
 }
 
 function stop(){
    clearInterval(timer);
+   document.getElementById("btnRun").disabled = false;
+   document.getElementById("btnStop").disabled = true;
 }

@@ -16,8 +16,8 @@
     <canvas id="gameBorad" width="600" height="600" onclick="clickHandler(event)"></canvas>
     <button onclick="next()" >Next</button>
     <input id="timeGap" type="number" max="1000" min="100" step="100" value="500">
-    <button onclick="run()" >Run</button>
-    <button onclick="stop()" >Stop</button>
+    <button id="btnRun" onclick="run()" >Run</button>
+    <button id="btnStop" onclick="stop()" disabled >Stop</button>
 </body>
 <script src="Life.js">
     // var canvas = document.getElementById("gameBorad");
